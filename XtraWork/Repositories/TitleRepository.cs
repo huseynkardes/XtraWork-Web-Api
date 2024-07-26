@@ -29,5 +29,20 @@ namespace XtraWork.Repositories
             await _context.SaveChangesAsync();
             return title;
         }
+
+        public async Task<Title> Update(Title title)
+        {
+            _context.Update(title);
+            await _context.SaveChangesAsync();
+            return title;
+        }
+
+        public async Task Delete(Guid id)
+        {
+            var title = await _context.Titles.FindAsync(id);
+            _context.Remove(title);
+            await _context.SaveChangesAsync();
+            
+        }
     }
 }
