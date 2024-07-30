@@ -29,12 +29,7 @@ namespace XtraWork.Controllers
             return Ok(response);
         }
 
-        [HttpGet("{search}")]
-        public async Task<ActionResult<List<EmployeeResponse>>> Search(string keyword)
-        {
-            var response = await _employeeService.Search(keyword);
-            return Ok(response);
-        }
+        
 
         [HttpPost]
         public async Task<ActionResult<EmployeeResponse>> Create([FromBody] EmployeeRequest request)

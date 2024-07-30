@@ -44,21 +44,6 @@ namespace XtraWork.Services
             return response;
         }
 
-        public async Task<List<EmployeeResponse>> Search(string keyword)
-        {
-            var employees = await _employeeRepository.Search(keyword);
-
-            var response = employees.Select(employee => new EmployeeResponse
-            {
-                Id = employee.Id,
-                FirstName = employee.FirstName,
-                LastName = employee.LastName,
-                TitleId = employee.TitleId,
-                TitleDescription = employee.Title.Description
-            }).ToList();
-
-            return response;
-        }
 
         public async Task<EmployeeResponse> Create(EmployeeRequest request)
         {

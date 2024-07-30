@@ -27,15 +27,7 @@ namespace XtraWork.Repositories
                 .FirstOrDefaultAsync(x => x.Id == id);
         }
 
-        public async Task<List<Employee>> Search(string keyword)
-        {
-            return await _context.Employees
-                .Include (x => x.Title)
-                .Where(x => x.FirstName.Contains(keyword) || x.LastName.Contains(keyword))
-                .OrderBy(x => x.FirstName)
-                .ThenBy(x => x.LastName)
-                .ToListAsync();
-        }
+     
 
         public async Task<Employee> Create(Employee employee)
         {
